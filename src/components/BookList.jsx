@@ -1,6 +1,7 @@
 import BookCard from './BookCard';
 
-export default function BookList({ books }) {
+export default function BookList({ books, onDeleteBook }) {
+  // Conditional rendering saat list kosong
   if (books.length === 0) {
     return (
       <div style={{ textAlign: 'center', padding: '2rem', color: '#94a3b8' }}>
@@ -12,7 +13,7 @@ export default function BookList({ books }) {
   return (
     <div>
       {books.map((item) => (
-        <BookCard key={item.id} book={item} />
+        <BookCard key={item.id} book={item} onDelete={onDeleteBook} />
       ))}
     </div>
   );
